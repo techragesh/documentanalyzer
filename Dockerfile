@@ -1,3 +1,9 @@
+FROM maven:3.9.5-eclipse-temurin-21 AS build
+COPY . /app
+WORKDIR /app
+# Build the application using Maven
+RUN mvn clean install -DskipTests
+
 # Use an official OpenJDK runtime as a parent image
 FROM openjdk:21-jdk-slim
 
